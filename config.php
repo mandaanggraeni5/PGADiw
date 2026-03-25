@@ -1,13 +1,12 @@
 <?php
 session_start();
 
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
-$host = getenv('mysql.railway.internal');
-$user = getenv('root');
-$pass = getenv('LzdpQOruIhidxMhotOxzfOZOoPgoDSHI');
-$db   = getenv('railway');
-$port = getenv('3306');
+// ambil dari ENV Railway (INI YANG BENAR)
+$host = getenv('MYSQLHOST');
+$user = getenv('MYSQLUSER');
+$pass = getenv('MYSQLPASSWORD');
+$db   = getenv('MYSQLDATABASE');
+$port = getenv('MYSQLPORT');
 
 try {
     $conn = new PDO(
@@ -22,7 +21,7 @@ try {
     die("DB Error: " . $e->getMessage());
 }
 
-// products
+// TABLE PRODUCTS
 $conn->exec("
 CREATE TABLE IF NOT EXISTS products (
 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -36,7 +35,7 @@ flashsale_end DATETIME NULL,
 promo_text VARCHAR(100)
 )");
 
-// orders
+// TABLE ORDERS
 $conn->exec("
 CREATE TABLE IF NOT EXISTS orders (
 id INT AUTO_INCREMENT PRIMARY KEY,
