@@ -23,7 +23,7 @@ try {
 }
 
 // products
-$conn->query("
+$conn->exec("
 CREATE TABLE IF NOT EXISTS products (
 id INT AUTO_INCREMENT PRIMARY KEY,
 nama VARCHAR(100),
@@ -37,7 +37,7 @@ promo_text VARCHAR(100)
 )");
 
 // orders
-$conn->query("
+$conn->exec("
 CREATE TABLE IF NOT EXISTS orders (
 id INT AUTO_INCREMENT PRIMARY KEY,
 nama VARCHAR(100),
