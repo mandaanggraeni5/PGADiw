@@ -3,11 +3,11 @@ session_start();
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-$host = getenv('MYSQLHOST');
-$user = getenv('MYSQLUSER');
-$pass = getenv('MYSQLPASSWORD');
-$db   = getenv('MYSQLDATABASE');
-$port = getenv('MYSQLPORT');
+$host = getenv('mysql.railway.internal');
+$user = getenv('root');
+$pass = getenv('LzdpQOruIhidxMhotOxzfOZOoPgoDSHI');
+$db   = getenv('railway');
+$port = getenv('3306');
 
 $conn = new mysqli($host, $user, $pass, $db, $port);
 $conn->set_charset("utf8mb4");
