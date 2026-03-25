@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = [
+  "php",
+  "phpExtensions.pdo",
+  "phpExtensions.pdo_mysql",
+  "phpExtensions.curl",
+  "phpExtensions.mbstring"
+]
